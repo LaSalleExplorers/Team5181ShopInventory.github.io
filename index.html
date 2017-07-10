@@ -5,14 +5,36 @@
 	</style>
 	<meta title="FRC Team 5181 Shop Inventory">
 	<head>
-		FRC Team 5181 Shop Inventory
-	</head><br>
+		<strong>FRC Team 5181 Shop Inventory</strong>
+	</head><br><br><br>
 	<body>
 		<input type="text" id="searchBar" value="Search Part Name or Part Number"></input>
-		<button onclick="searchRegistry()">Search</button>
+		<button onclick="searchRegistry()">Search</button><br>
+		<table>
+			<tr>
+				<th>Part Name</th>
+				<th>Part Number</th>
+				<th>Loaction</th>
+				<th>Link</th>
+			</tr>
+		</table>
 		<script>
+			var registryData={};
+			function part(partName,partNumber,partLocation,partLink){
+				this.name=partName;
+				this.num=partNumber;
+				this.location=partLocation;
+				this.ref=partLink;
+			}
 			function searchRegistry(){
 				var searchValue=document.getElementById("searchBar").value;
+				for(partObject in registryData){
+					for(partProperty in partObject){
+						if(partProperty==searchValue){
+							//document.createElement
+						}
+					}
+				}
 				console.log(searchValue);
 			}
 		</script>
