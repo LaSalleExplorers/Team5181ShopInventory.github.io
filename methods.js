@@ -36,3 +36,6 @@ function displayRegistry(){
 	}
 	document.getElementById("registryDisplay").style.visibility="visible";
 }
+function clearInput(ind){
+	document.getElementsByTagName("INPUT")[ind].value="";
+}
