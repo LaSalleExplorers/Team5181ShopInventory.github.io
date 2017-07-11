@@ -6,7 +6,7 @@ function part(partName,partNumber,partLocation,partLink,partCategory,metaTags){
 	this.category=partCategory;
 	this.tags=metaTags;
 	this.showOnMap=function(){
-		
+		//this method will pull up a picture of the layout of our shop with the area where the part is kept hightlighted but I just haven't gotten around to writing it yet
 	}
 	this.addToTable=function(){
 		var newPartRow=document.createElement("tr");
