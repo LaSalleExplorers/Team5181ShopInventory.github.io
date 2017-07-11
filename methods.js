@@ -26,7 +26,7 @@ function searchRegistry(){
 			}
 		}
 		resultsTable.id="resultsTable";
-		document.body.insertBefore(resultsTable,document.getElementById("registryDisplay"));
+		document.body.insertBefore(resultsTable,document.getElementById("inventoryText"));
 		document.getElementById("resultsTable").style.visibility="visible";
 	}
 }
