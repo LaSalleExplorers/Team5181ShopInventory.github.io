@@ -12,6 +12,8 @@
 			table-layout: fixed;
 		}
 		th {
+		}
+		tr{
 			background-color: #FFFFFF;
 		}
 		td {background-color: #FFFFFF;}
@@ -26,11 +28,13 @@
 	<body>
 		<input type="text" id="searchBar" value="Search Part Name or Part #"></input>
 		<button onclick="searchRegistry()">Search</button><br>
+		<h2 id="inventoryText">Inventory</h2>
 		<table id="registryDisplay">
 			<tr>
 				<th>Part Name</th>
 				<th>Part Number</th>
 				<th>Location</th>
+				<th>Quantity</th>
 				<th>Link</th>
 			</tr>
 		</table>
@@ -38,8 +42,8 @@
 		<script src="constructors.js"></script>
 		<script>
 			var registryData=[];
-			registryData.push(new part("CIM Motor","am-0255","P-LS-M","http://www.andymark.com/CIM-Motor-p/am-0255.htm","Motors",["Motor","KOP","2.5in"]));
-			registryData.push(new part("HiGrip Wheel","am-2256","P-LS-W","http://www.andymark.com/4-inch-white-higrip-wheel-p/am-2256.htm","Wheels",["Wheel","KOP","4in"]));
+			registryData.push(new part("CIM Motor","am-0255","P-LS-M",4,"http://www.andymark.com/CIM-Motor-p/am-0255.htm","Motors",["Motor","KOP","2.5in"]));
+			registryData.push(new part("HiGrip Wheel","am-2256","P-LS-W",10,"http://www.andymark.com/4-inch-white-higrip-wheel-p/am-2256.htm","Wheels",["Wheel","KOP","4in"]));
 			displayRegistry();
 		</script>
 	</body>
