@@ -1,72 +1,46 @@
 <!Doctype html>
 <html>
 	<style>
-	
+		a {
+			background-color: #FFFFFF;
+		}
+		a:hover {
+			background-color: #CCFFCC;
+		}
+		table {
+			visibility: hidden;
+			table-layout: fixed;
+		}
+		th {
+			background-color: #FFFFFF;
+		}
+		td {background-color: #FFFFFF;}
+		body {background-color: #4444BB;}
+		h2 {color: #FFFFFF;}
+		h1 {color: #FFFFFF;}
 	</style>
 	<meta title="FRC Team 5181 Shop Inventory">
 	<head>
 		<strong>FRC Team 5181 Shop Inventory</strong>
 	</head><br><br><br>
 	<body>
-		<input type="text" id="searchBar" value="Search Part Name or Part Number"></input>
+		<input type="text" id="searchBar" value="Search Part Name or Part #"></input>
 		<button onclick="searchRegistry()">Search</button><br>
 		<table id="registryDisplay">
 			<tr>
-				<th>| Part Name |</th>
-				<th>Part Number |</th>
-				<th>Location |</th>
-				<th>Link |</th>
+				<th>Part Name</th>
+				<th>Part Number</th>
+				<th>Location</th>
+				<th>Link</th>
 			</tr>
 		</table>
+		<script src="methods.js"></script>
+		<script src="constructors.js"></script>
 		<script>
-			var registryData={};
-			function part(partName,partNumber,partLocation,partLink){
-				this.name=partName;
-				this.num=partNumber;
-				this.location=partLocation;
-				this.ref=partLink;
-				this.showOnMap=function(){
-					
-				}
-				this.addToTable=function(){
-					var newPartRow=document.createElement("tr");
-					var newNameNode=document.createElement("td");
-					var newNumberNode=document.createElement("td");
-					var newLocationNode=document.createElement("td");
-					var newLinkNode=document.createElement("td");
-					var newPartName=document.createTextNode(this.name);
-					var newPartNumber=document.createTextNode(this.num);
-					var newPartLocation=document.createTextNode(this.location);
-					var newPartLinkText=document.createTextNode(this.ref);
-					var newPartLink=document.createElement("a");
-					newPartRow.id=this.name;
-					newPartLink.href=this.ref;
-					newLocationNode.addEventListener("click",this.showOnMap());
-					newNameNode.appendChild(newPartName);
-					newNumberNode.appendChild(newPartNumber);
-					newLocationNode.appendChild(newPartLocation);
-					newLinkNode.appendChild(newPartLink);
-					newPartRow.appendChild(newNameNode);
-					newPartRow.appendChild(newNumberNode);
-					newPartRow.appendChild(newLocationNode);
-					newPartRow.appendChild(newLinkNode);
-					document.getElementById("registryDisplay").appendChild(newPartRow);
-				}
-			}
-			function searchRegistry(){
-				var searchValue=document.getElementById("searchBar").value;
-				for(partObject in registryData){
-					for(partProperty in partObject){
-						if(partProperty==searchValue){
-							var partRow=document.getElementById(partObject.name);
-							var partRegistry=document.getElementById("registryDisplay");
-							partRegistry.removeChild(partRow);
-							partRegistry.insertBefore(partRow,partRegistry.childNodes[1]);
-						}
-					}
-				}
-				console.log(searchValue);
-			}
+			var registryData=[];
+			registryData.push(new part("CIM Motor","am-0255","P-LS-M","http://www.andymark.com/CIM-Motor-p/am-0255.htm","Motors",["Motor","KOP","2.5in"]));
+			registryData.push(new part("HiGrip Wheel","am-2256","P-LS-W","http://www.andymark.com/4-inch-white-higrip-wheel-p/am-2256.htm","Wheels",["Wheel","KOP","4in"]));
+			displayRegistry();
 		</script>
 	</body>
 </html>
